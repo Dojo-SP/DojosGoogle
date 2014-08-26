@@ -4,12 +4,13 @@ import Test.HUnit
 
 lasDescribe :: Int -> Int
 lasDescribe 21 = 1211
+lasDescribe 12 = 1112
 lasDescribe x = 10 + x
+
 
 
 main :: IO ()
 main = hspec $ do
-
   describe "testes de descricao" $ do
     it "descricao do 1" $ do
       lasDescribe 1 `shouldBe` 11
@@ -22,6 +23,9 @@ main = hspec $ do
 
     it "descricao do 21" $ do
       lasDescribe 21 `shouldBe` 1211
+
+    it "descricao do 12" $ do
+      lasDescribe 12 `shouldBe` 1112
 
     --it "nao passa" $ do
     --  False @?= True
