@@ -3,15 +3,18 @@ import Test.HUnit
 
 
 lasDescribe :: Int -> Int
-lasDescribe _ = 11
+lasDescribe = (10+)
 
 
 main :: IO ()
 main = hspec $ do
 
   describe "testes de descricao" $ do
-    it "decricao do 1" $ do
+    it "descricao do 1" $ do
       lasDescribe 1 `shouldBe` 11
+
+    it "descricao do 2" $ do
+      lasDescribe 2 `shouldBe` 12
 
     --it "nao passa" $ do
     --  False @?= True
