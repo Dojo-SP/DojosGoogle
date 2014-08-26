@@ -7,10 +7,12 @@ lasDescribe 21 = 1211
 lasDescribe 12 = 1112
 lasDescribe x = 10 + x
 
-
+digits :: Int -> [Int]
+digits x = [x]
 
 main :: IO ()
 main = hspec $ do
+
   describe "testes de descricao" $ do
     it "descricao do 1" $ do
       lasDescribe 1 `shouldBe` 11
@@ -26,6 +28,11 @@ main = hspec $ do
 
     it "descricao do 12" $ do
       lasDescribe 12 `shouldBe` 1112
+
+  describe "teste de parse de inteiros" $ do
+    it "parse de 1" $ do
+      digits 1 `shouldBe` [1]
+
 
     --it "nao passa" $ do
     --  False @?= True
