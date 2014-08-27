@@ -8,7 +8,8 @@ lasDescribe 12 = 1112
 lasDescribe x = 10 + x
 
 digits :: Int -> [Int]
-digits x = [x]
+digits x | x >= 10 = digits (x `div` 10) ++ [x `mod` 10]
+         | otherwise = [x]
 
 main :: IO ()
 main = hspec $ do
@@ -33,6 +34,11 @@ main = hspec $ do
     it "parse de 1" $ do
       digits 1 `shouldBe` [1]
 
+    it "parse de 11" $ do
+      digits 11 `shouldBe` [1, 1]
+
+    it "parse de 1734" $ do
+      digits 1734 `shouldBe` [1, 7, 3, 4]
 
     --it "nao passa" $ do
     --  False @?= True
