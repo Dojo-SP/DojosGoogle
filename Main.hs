@@ -1,10 +1,17 @@
 import Test.Hspec
 import Test.HUnit
+import Data.List (groupBy)
 
+groupDigits = groupBy (==)
+groupTranslate n = length n * 10 + head n
+pairs n = map groupTranslate $ groupDigits $ digits n
 
 lasDescribe :: Int -> Int
-lasDescribe x | x <= 11 = 10 + x
-              | otherwise = 1010 + a * 100 + b where [a, b] = digits x
+lasDescribe n = (read $ concat $ map show $ pairs n)-- :: Int
+
+--lasDescribe 22 = 22
+--lasDescribe x | x <= 11 = 10 + x
+--              | otherwise = 1010 + a * 100 + b where [a, b] = digits x
 
 digits :: Int -> [Int]
 digits x | x >= 10 = digits (x `div` 10) ++ [x `mod` 10]
@@ -31,6 +38,14 @@ main = hspec $ do
 
     it "descricao do 31" $ do 
       lasDescribe 31 `shouldBe` 1311
+
+    it "descricao do 22" $ do
+      lasDescribe 22 `shouldBe` 22
+
+    it "descricao do 111221" $ do
+      lasDescribe 111221 `shouldBe` 312211
+
+-- [(1, 3)), (2,2)), (1,1))]
 
   describe "teste de parse de inteiros" $ do
     it "parse de 1" $ do
