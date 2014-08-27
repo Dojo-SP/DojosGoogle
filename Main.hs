@@ -3,9 +3,8 @@ import Test.HUnit
 
 
 lasDescribe :: Int -> Int
-lasDescribe 21 = 1211
-lasDescribe 12 = 1112
-lasDescribe x = 10 + x
+lasDescribe x | x <= 11 = 10 + x
+              | otherwise = 1010 + a * 100 + b where [a, b] = digits x
 
 digits :: Int -> [Int]
 digits x | x >= 10 = digits (x `div` 10) ++ [x `mod` 10]
@@ -29,6 +28,9 @@ main = hspec $ do
 
     it "descricao do 12" $ do
       lasDescribe 12 `shouldBe` 1112
+
+    it "descricao do 31" $ do 
+      lasDescribe 31 `shouldBe` 1311
 
   describe "teste de parse de inteiros" $ do
     it "parse de 1" $ do
