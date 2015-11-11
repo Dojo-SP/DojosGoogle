@@ -20,8 +20,7 @@ Data          Linguagem Framework de testes Problema
 
 .. _`2015-11-09`: dojo20151109/
 
-.. _`C`: http://eradman.com/posts/tdd-in-c.html
+.. _`Nenhum`: http://eradman.com/posts/tdd-in-c.html
 
-.. _`Sequência Look-and-Say`:
+.. _`Escolhendo uma pizza`:
    http://dojopuzzles.com/problemas/exibe/escolhendo-uma-pizza/
-
